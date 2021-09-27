@@ -20,6 +20,14 @@ export const RegisterScreen = () => {
 
   const onSubmit = async (values) => {
     const { email, password } = values
+    if (password.length < 6) {
+      Swal.fire({
+        icon: 'info',
+        title: 'La contraseña debe tener al menos 6 caracteres',
+      })
+      return
+    }
+
     const data = await register({ email, password })
     if (!data) {
       Swal.fire({
