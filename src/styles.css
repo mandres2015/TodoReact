@@ -1,0 +1,8 @@
+body {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: rgba(30, 64, 175, 0.35) #efefef;
+}
+
+.task-container {
+  overflow-y: auto;
+}
