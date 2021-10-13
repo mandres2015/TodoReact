@@ -28,6 +28,13 @@ export const RegisterScreen = () => {
       return
     }
 
+    Swal.fire({
+      title: 'Validando',
+      didOpen: () => {
+        Swal.showLoading()
+      },
+    })
+
     const data = await register({ email, password })
     if (!data) {
       Swal.fire({

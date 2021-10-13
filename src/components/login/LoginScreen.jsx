@@ -24,6 +24,12 @@ export const LoginScreen = ({ history }) => {
 
   const onSubmit = async (values) => {
     const { email, password } = values
+    Swal.fire({
+      title: 'Validando',
+      didOpen: () => {
+        Swal.showLoading()
+      },
+    })
     const data = await login({ email, password })
     if (!data) {
       Swal.fire({
@@ -32,6 +38,7 @@ export const LoginScreen = ({ history }) => {
       })
       return
     }
+    Swal.close();
     const { token } = data;
     try {
       localStorage.setItem('token', JSON.stringify(token))
